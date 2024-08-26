@@ -1,0 +1,795 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+h1 {
+    text-align: center;
+    color: blue;
+    margin-top: 20px;
+}
+
+/* Form Container */
+.form-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: blue;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"],
+.form-container input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: blue; /* Changed to blue */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-container button:hover {
+    background-color: darkblue; /* Changed to dark blue */
+}
+
+.form-container .login-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.form-container .login-link a {
+    color: blue;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.form-container .login-link a:hover {
+    color: darkblue;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.875em;
+    display: block;
+    margin-top: 0.5em;
+}
+/* login container */
+.login-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+    background-color: #fdfdfd; /* Background color for visibility */
+}
+
+.login-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: blue; /* Changed to blue */
+    text-align: center;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: blue; /* Changed to blue */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-container button:hover {
+    background-color: darkblue; /* Changed to dark blue */
+}
+
+.login-container a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: blue; /* Changed to blue */
+    text-decoration: none;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+}
+/* Services Container */
+#services-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    padding-bottom: 120px; /* Added bottom padding to avoid overlap */
+    background-color: white;
+    justify-content: center; /* Center the grid items */
+}
+
+/* Service Box */
+.service {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: #fff;
+    overflow: hidden;
+    min-height: 300px;
+    box-sizing: border-box;
+}
+
+/* Image Styling */
+.service img {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Title Styling */
+.service h2 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: blue; /* Changed to blue */
+}
+
+/* Description Styling */
+.service p {
+    font-size: 1em;
+    color: #555;
+}
+
+/* Book Button for All Services */
+.book-btn {
+    background-color: blue; /* Changed to blue */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    margin-top: 10px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.book-btn:hover {
+    background-color: darkblue; /* Changed to dark blue */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.book-btn:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+/* Button container styling */
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Proceed button styling */
+.proceed-button {
+    position: fixed; /* Fixes the button's position relative to the viewport */
+    bottom: 30px; /* Moves the button up from the bottom */
+    right: 30px; /* Moves the button away from the right edge */
+    padding: 15px 30px; /* Increases padding for a bigger button */
+    font-size: 18px; /* Makes the text larger */
+    background-color: darkblue; /* Changed to dark blue */
+    color: white; /* Text color */
+    border: none;
+    border-radius: 8px; /* Makes the corners of the button more rounded */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Adds smooth transition for hover effect */
+}
+
+.proceed-button:hover {
+    background-color: rgb(0,0,139); /* Darker blue for hover effect */
+    transform: scale(1.05); /* Slightly enlarges the button on hover */
+}
+
+.proceed-button:focus {
+    outline: none; /* Removes default focus outline */
+}
+
+/* Express Services Container */
+#express-services-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Ensure all services are in one row */
+    gap: 20px;
+    padding: 20px;
+    background-color: white;
+    justify-content: center; /* Center the grid items */
+}
+
+/* Express Service Box */
+.express-service {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: #fff;
+    overflow: hidden;
+    min-height: 250px; /* Adjusted for better fit */
+    box-sizing: border-box;
+}
+
+/* Image Styling for Express Services */
+.express-service img {
+    width: 100%;
+    height: auto;
+    max-height: 120px; /* Ensure images are not too big */
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Title Styling for Express Services */
+.express-service h2 {
+    font-size: 1em; /* Adjusted font size */
+    margin: 10px 0;
+    color: blue; /* Changed to blue */
+}
+
+/* Description Styling for Express Services */
+.express-service p {
+    font-size: 0.9em; /* Adjusted font size */
+    color: #555;
+}
+
+/* Book Button for Express Services */
+.book-btn {
+    background-color: blue; /* Changed to blue */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    margin-top: 10px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.book-btn:hover {
+    background-color: darkblue; /* Changed to dark blue */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.book-btn:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+/* Optional styling for booked state */
+.book-btn.booked {
+    background-color: #ccc;
+    color: #666;
+}
+
+/* Location Page Styling */
+.location-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+}
+
+.location-container h1 {
+    text-align: center;
+    color: blue; /* Changed to blue */
+    margin-bottom: 20px;
+    font-size: 1.5em; /* Adjust font size if needed */
+}
+
+.location-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+    width: 100%; /* Ensure labels take full width */
+    text-align: left; /* Align text to the left */
+}
+
+.location-container input[type="text"] {
+    width: 100%; /* Make inputs full width */
+    padding: 15px; /* Increase padding for bigger boxes */
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px; /* Increase font size for readability */
+}
+
+.location-container button {
+    width: 100%; /* Make button full width */
+    padding: 15px; /* Increase padding for better touch target */
+    background-color: blue; /* Changed to blue */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-top: 20px; /* Space above the button */
+}
+
+.location-container button:hover {
+    background-color: darkblue; /* Changed to dark blue */
+}
+
+/* Error Message */
+.error-message {
+    color: red;
+    font-size: 0.875em;
+    display: block;
+    margin-top: 0.5em;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .location-container {
+        padding: 15px;
+        margin: 20px;
+    }
+
+    .location-container input,
+    .location-container button {
+        font-size: 14px;
+    }
+}
+/* Confirmation Page Container */
+.confirmation-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Location Details */
+#location-details {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: darkblue; /* Changed to dark blue */
+}
+
+/* Service Details Section */
+#service-details {
+    margin-bottom: 20px;
+}
+
+.service-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.service-item:last-child {
+    border-bottom: none;
+}
+
+.service-name {
+    font-size: 16px;
+    color: blue; /* Changed to blue */
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+}
+/* Quantity display styling */
+.quantity-display {
+    display: inline-block;
+    width: 30px; /* Adjust as needed */
+    text-align: center;
+    font-size: 16px; /* Adjust font size as needed */
+    margin: 0 10px; /* Space around quantity display */
+}
+
+/* Quantity Control Buttons */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.quantity-button {
+    background-color: blue; /* Changed to blue */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 0 2px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.quantity-button:hover {
+    background-color: darkblue; /* Changed to dark blue */
+}
+
+/* Remove Button */
+.remove-button {
+    background-color: darkblue; /* Changed to dark blue */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.remove-button:hover {
+    background-color: navy; /* Changed to navy blue */
+}
+
+/* Total Price Section */
+#total-price {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 20px;
+    color: blue; /* Changed to blue */
+}
+
+/* Confirm Button */
+#confirm-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: blue; /* Changed to blue */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+#confirm-button:hover {
+    background-color: darkblue; /* Changed to dark blue */
+}
+
+/* Payment Container */
+.payment-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Payment Method Sections */
+.payment-method {
+    margin-bottom: 30px;
+}
+
+.payment-method h2 {
+    color: blue; /* Changed to blue */
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.payment-method input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.payment-method button {
+    width: 100%;
+    padding: 10px;
+    background-color: blue; /* Changed to blue */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.payment-method button:hover {
+    background-color: darkblue; /* Changed to dark blue */
+}
+
+/* Specific Styling for COD Button */
+#confirm-cod {
+    width: 100%;
+    padding: 10px;
+    background-color: darkblue; /* Changed to dark blue */
+    color: white;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#confirm-cod:hover {
+    background-color: navy; /* Changed to navy blue */
+}
+
+/* OTP Container */
+.otp-container {
+    display: none;
+    margin: 20px;
+}
+
+.otp-container input {
+    margin: 5px 0;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.otp-container button {
+    padding: 10px;
+    background-color: rgb(0,0,139); /* Green button color */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.otp-container button:disabled {
+    background-color: #ccc; /* Disabled button color */
+}
+
+/* Service Details Container */
+.service-details-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service-details-container h1 {
+    color: blue; /* Changed to blue */
+}
+
+.service-details-container .service-details {
+    margin-bottom: 20px;
+}
+
+.service-details-container .service-details h2 {
+    font-size: 20px; /* Adjust as needed */
+    color: blue; /* Changed to blue */
+    margin-bottom: 10px;
+}
+
+.service-details-container .service-details p {
+    font-size: 16px; /* Adjust as needed */
+    color: #555; /* Text color */
+    margin-bottom: 10px;
+}
+
+.service-details-container .service-details .service-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.service-details-container .service-details .service-item:last-child {
+    border-bottom: none;
+}
+
+.service-details-container .service-details .service-item span {
+    display: block;
+    margin-bottom: 5px;
+}
+/* Review and Rating Section */
+.review-section {
+    margin-top: 20px;
+}
+
+.review-section h2 {
+    margin-bottom: 10px;
+    color: blue; /* Changed to blue */
+}
+
+.review-section textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd; /* Add border for better visibility */
+    border-radius: 4px; /* Rounded corners */
+}
+
+.review-section button {
+    padding: 10px;
+    background-color: blue; /* Changed to blue */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px; /* Rounded corners */
+}
+
+.review-section button:hover {
+    background-color: darkblue; /* Changed to dark blue */
+}
+
+.review-section .rating {
+    margin-bottom: 10px;
+}
+
+.review-section .rating label {
+    margin-right: 5px;
+}
+
+.review-section .rating input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* Add responsive design */
+@media (max-width: 768px) {
+    .service-details-container, .otp-container {
+        padding: 10px;
+        margin: 10px;
+    }
+}
+
+/* Thank You Message */
+#thank-you-message {
+    display: none; /* Hidden by default */
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #dff0d8; /* Light green background to signify success */
+    color:rgb(0,0,139); /* Dark green text color for readability */
+    border: 1px solid #d6e9c6; /* Light green border */
+    border-radius: 4px; /* Rounded corners */
+    text-align: center; /* Center align text */
+    font-size: 16px; /* Adjust font size as needed */
+    font-weight: bold; /* Make the message bold */
+}
+
+/* Reset some basic styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
+/* Container for the cover image and overlay */
+.cover-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Cover image styling with blur effect */
+.cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    filter: blur(5px);
+    -webkit-filter: blur(5px); /* For Safari */
+}
+
+/* Gradient overlay on top of the cover image */
+.cover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.5), 
+        rgba(0, 0, 0, 0.5)
+    );
+    z-index: 1;
+}
+
+/* Navigation bar styling */
+.navbar {
+    position: absolute;
+    top: 70px; /* Moved the buttons down */
+    right: 20px;
+    z-index: 2;
+}
+
+.nav-button {
+    text-decoration: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px 30px; /* Increased padding for larger buttons */
+    margin-left: 15px; /* Adjusted margin to fit the new size */
+    border-radius: 8px; /* Slightly larger border radius */
+    font-weight: bold;
+    font-size: 1.2em; /* Increased font size */
+    transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Text overlay styling */
+.text-overlay {
+    position: absolute;
+    top: 40%; /* Move text slightly up */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2;
+}
+
+.text-overlay h1 {
+    font-size: 4em; /* Adjust size as needed */
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adds shadow for better visibility */
+}
+
+.text-overlay p {
+    font-size: 1.5em; /* Adjust size as needed */
+    margin: 10px 0 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Adds shadow for better visibility */
+}

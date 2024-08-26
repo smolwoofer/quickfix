@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeServiceProvider - Signup</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Signup</h2>
+        <form id="signup-form">
+            <label for="name">Name</label>
+            <input type="text" id="name" required>
+            <small id="name-error" class="error-message"></small>
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+            <small id="email-error" class="error-message"></small>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" required>
+            <small id="phone-error" class="error-message"></small>
+            <label for="password">Password</label>
+            <input type="password" id="password" required>
+            <small id="password-error" class="error-message"></small>
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" required>
+            <small id="confirm-password-error" class="error-message"></small>
+            <button type="submit">Signup</button>
+            <div class="login-link">
+                <p>Already have an account? </p>
+                <a href="login.html">Login</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="p1.js"></script>
+</body>
+</html>

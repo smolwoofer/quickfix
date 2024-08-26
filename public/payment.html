@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="payment-container">
+        <h1>Select Payment Method</h1>
+        
+        <div class="payment-method">
+            <h2>UPI Payment</h2>
+            <input type="text" placeholder="Enter UPI ID" required>
+            <button>Pay with UPI</button>
+        </div>
+
+        <div class="payment-method">
+            <h2>Credit/Debit Card</h2>
+            <input type="text" placeholder="Card Number" required>
+            <input type="text" placeholder="Cardholder Name" required>
+            <input type="text" placeholder="Expiry Date (MM/YY)" required>
+            <input type="text" placeholder="CVV" required>
+            <button>Pay with Card</button>
+        </div>
+
+        <div class="payment-method">
+            <h2>Cash on Delivery</h2>
+            <button id="confirm-cod">Confirm COD</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('confirm-cod').addEventListener('click', function() {
+            const now = new Date();
+
+            let serviceDetails = JSON.parse(localStorage.getItem('selectedServices')) || [];
+
+            serviceDetails = serviceDetails.map(service => {
+                if (['Plumbing', 'Electrician', 'Carpenter'].includes(service.name)) {
+                    const arrivalTime = new Date(now.getTime() + 30 * 60000);
+                    service.arrivalTime = `${arrivalTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} (express service)`;
+                } else {
+                    const nextDay = new Date(now);
+                    nextDay.setDate(now.getDate() + 1);
+                    const randomHours = Math.floor(Math.random() * 3) + 10;
+                    const randomMinutes = Math.floor(Math.random() * 60);
+                    nextDay.setHours(randomHours);
+                    nextDay.setMinutes(randomMinutes);
+
+                    const startTime = nextDay.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                    const endTime = new Date(nextDay.getTime() + 3 * 60 * 60000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                    service.arrivalTime = `${startTime} to ${endTime}`;
+                }
+                return service;
+            });
+
+            localStorage.setItem('serviceDetails', JSON.stringify(serviceDetails));
+            window.location.href = 'servicedetails.html';
+        });
+    </script>
+</body>
+</html>

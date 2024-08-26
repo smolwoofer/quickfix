@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- OTP Verification Section -->
+    <div id="otp-section" class="otp-container">
+        <h2>Verify Your Contact Number</h2>
+        <input type="text" id="contactNumber" placeholder="Enter your contact number" />
+        <button id="sendOtpButton">Send OTP</button>
+        <div id="otp-verification" style="display: none;">
+            <input type="text" id="otp" placeholder="Enter OTP" />
+            <button id="verifyOtpButton">Verify OTP</button>
+        </div>
+        <div id="otp-message"></div>
+    </div>
+
+    <!-- Service Details and Review Section -->
+    <div id="service-details-section" class="service-details-container" style="display: none;">
+        <h1>Your Service Details</h1>
+        <div id="serviceInfo"></div>
+        <div id="thank-you-message" style="display: none;">Thank you for choosing QuickFix!</div>
+
+        <!-- Review and Rating Section -->
+        <div class="review-section" id="review-section" style="display: none;">
+            <h2>Rate and Review Your Services</h2>
+
+            <div class="rating">
+                <label for="rating">Rating:</label>
+                <label><input type="radio" name="rating" value="1"> 1 ★</label>
+                <label><input type="radio" name="rating" value="2"> 2 ★</label>
+                <label><input type="radio" name="rating" value="3"> 3 ★</label>
+                <label><input type="radio" name="rating" value="4"> 4 ★</label>
+                <label><input type="radio" name="rating" value="5"> 5 ★</label>
+            </div>
+
+            <textarea id="review" placeholder="Write your review here..."></textarea>
+            <button id="submitFeedbackButton">Submit Feedback</button>
+            <div id="thank-you-message" style="display: none;">Thank you for choosing QuickFix!</div>
+        </div>
+    </div>
+
+    <script>
+        // Function to format date in DD-MM-YYYY
+        function formatDate(date) {
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+            const year = date.getFullYear();
+            return `${day}-${month}-${year}`;
+        }
+
+        // Function to display OTP section
+        function showOtpSection() {
+            document.getElementById('otp-section').style.display = 'block';
+        }
+
+        // Function to display service details section
+        function showServiceDetailsSection() {
+            document.getElementById('otp-section').style.display = 'none';
+            document.getElementById('service-details-section').style.display = 'block';
+            renderServiceDetails(); // Render service details after OTP verification
+        }
+
+        // Function to display review section
+        function showReviewSection() {
+            document.getElementById('review-section').style.display = 'block';
+        }
+
+        // Simulate sending OTP and show it via alert
+        function sendOtp() {
+            const contactNumber = document.getElementById('contactNumber').value;
+            if (contactNumber) {
+                const otp = Math.floor(1000 + Math.random() * 9000); // Generate a 4-digit OTP
+                alert(`Your OTP is: ${otp}`); // Simulate sending OTP via alert
+
+                // Store OTP in localStorage for verification
+                localStorage.setItem('otp', otp);
+
+                document.getElementById('otp-verification').style.display = 'block';
+                document.getElementById('otp-message').textContent = 'OTP sent to your contact number.';
+            } else {
+                document.getElementById('otp-message').textContent = 'Please enter a valid contact number.';
+            }
+        }
+
+        // Simulate OTP verification
+        function verifyOtp() {
+            const otp = document.getElementById('otp').value;
+            const storedOtp = localStorage.getItem('otp');
+
+            if (otp === storedOtp) {
+                document.getElementById('otp-message').textContent = 'OTP verified successfully.';
+                showServiceDetailsSection();
+                showReviewSection(); // Show review section after services are displayed
+            } else {
+                document.getElementById('otp-message').textContent = 'Invalid OTP. Please try again.';
+            }
+        }
+
+        // Function to render service details
+        function renderServiceDetails() {
+            const serviceDetails = JSON.parse(localStorage.getItem('serviceDetails')) || [];
+            const serviceInfoElement = document.getElementById('serviceInfo');
+
+            if (serviceDetails.length > 0) {
+                serviceInfoElement.innerHTML = ''; // Clear any previous content
+
+                // Get the current date and next day's date
+                const currentDate = new Date();
+                const nextDayDate = new Date(currentDate);
+                nextDayDate.setDate(currentDate.getDate() + 1);
+
+                const currentDateFormatted = formatDate(currentDate);
+                const nextDayDateFormatted = formatDate(nextDayDate);
+
+                serviceDetails.forEach(service => {
+                    let serviceHTML = '';
+
+                    if (['Plumbing', 'Electrician', 'Carpenter'].includes(service.name)) {
+                        // Display provider details for express services with exact arrival time
+                        serviceHTML = `
+                            <h4>Service: ${service.name}</h4>
+                            <p>Provider: ${service.provider || 'N/A'}</p>
+                            <p>Contact: ${service.contact || 'N/A'}</p>
+                            <p>Rating: ${service.rating ? `${service.rating} ★` : 'N/A'}</p>
+                            <p>Arrival Time: ${service.arrivalTime}</p>
+                            <hr>
+                        `;
+                    } else {
+                        // Display normal services with their respective arrival times
+                        serviceHTML = `
+                            <h4>Service: ${service.name}</h4>
+                            <p>Quantity: ${service.quantity}</p>
+                            <p>Price: ₹${service.price * service.quantity}/-</p>
+                            <p>Arrival Time: ${service.arrivalTime}</p>
+                            <p>Date: ${nextDayDateFormatted}</p> <!-- Next day's date -->
+                            <hr>
+                        `;
+                    }
+
+                    serviceInfoElement.innerHTML += serviceHTML;
+                });
+            } else {
+                serviceInfoElement.innerHTML = '<p>No services selected.</p>';
+            }
+        }
+
+        // Handle feedback submission
+        document.getElementById('submitFeedbackButton').addEventListener('click', function() {
+            const rating = document.querySelector('input[name="rating"]:checked')?.value;
+            const review = document.getElementById('review').value;
+
+            if (rating && review) {
+                // Hide the review section and show the thank-you message
+                document.getElementById('review-section').style.display = 'none';
+                document.getElementById('thank-you-message').style.display = 'block';
+
+                // Optionally, save the feedback to localStorage or send it to the server
+                const feedback = { rating, review };
+                console.log('Feedback submitted:', feedback);
+            } else {
+                alert('Please provide both rating and review.');
+            }
+        });
+
+        document.getElementById('sendOtpButton').addEventListener('click', sendOtp);
+        document.getElementById('verifyOtpButton').addEventListener('click', verifyOtp);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            showOtpSection(); // Show OTP section first
+        });
+    </script>
+</body>
+</html>
+
